@@ -1,0 +1,25 @@
+CC=gcc
+CCFLAGS=-Wall
+MAKE=make
+CLEAN=rm -f
+PROGRAM_NAME=VersUp
+OBJECTS=ReadV/ReadV.0 ToUp/ToUp.o
+
+$(PROGRAM_NAME): make-ReadV make-ToUp VersUp.o
+	$(cc) $(CCFLAGS) -o $(PROGRAM_NAME) $(OBJECTS) VersUp.o
+
+VersUp.o: VersUp.c
+	$(CC) $(CCFLAGS) -c -IReadV -IToUp $^
+	
+make-ReadV:
+	$(MAKE) -C ReadV ReadV.o
+		
+make-ToUp
+	$(MAKE) -C toup toup.o
+
+clean:
+	$(CLEAN) *.o $(PROGRAM_NAME)
+	$(MAKE) -C ReadV clean
+	$(MAKE) -C ToUp clean
+
+	
