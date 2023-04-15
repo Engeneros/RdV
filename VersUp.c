@@ -6,7 +6,7 @@
 int main (void)
 {
 	int ret;
-	char* str = (char*) malloc (STR_SIZE * sizeof(char));
+	char* str = (char*) malloc (STR_SZ * sizeof(char));
 	if(str == 0)
 	{
 		fprintf(stderr, "mallocErr\n");
@@ -25,5 +25,6 @@ int main (void)
 		free(str);
 		ret = 0;
 	}
-	return 0;	
+	return ret;
 }
+
